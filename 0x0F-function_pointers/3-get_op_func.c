@@ -3,7 +3,7 @@
 /**
  * get_op_func - Selects the correct fct to perform
  *               the oprt asked by the user.
- * @s: The op passed as arg.
+ * @m: The op passed as arg.
  *
  * Return: A ptr to the fct corresponding
  *         to the optr given as a prmt.
