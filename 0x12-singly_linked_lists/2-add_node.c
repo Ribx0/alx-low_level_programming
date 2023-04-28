@@ -3,29 +3,29 @@
 #include "lists.h"
 
 /**
- * add_node - ajoute une nouvelle node au debut d une liste chainer
- * @head: double pointeur a la list_t list
- * @str: nouveau string pour l'ajouter au node
+ * add_node - ajouter un nv node a la linked liste
+ * @head: pointeur double pour la list_t liste
+ * @str: nouveau string ajouter au node
  *
- * Return: l adresse du nouvelle element ou NULL si elle echoue
+ * Return: adresse du nv element, ou NULL si c'est faux
  */
 list_t *add_node(list_t **head, const char *str)
 {
-    list_t *new_node = malloc(sizeof(list_t));
-    if (new_node == NULL) {
-        return NULL;
-    }
+	list_t *n;
+	unsigned int l = 0;
 
-    new_node->str = strdup(str);
-    if (new_node->str == NULL) {
-        free(new_node);
-        return NULL;
-    }
+	while (str[l])
+		l++;
 
-    new_node->len = strlen(str);
-    new_node->next = *head;
-    *head = new_node;
+	n = malloc(sizeof(list_t));
+	if (!n)
+		return (NULL);
 
-    return new_node;
+	n->str = strdup(str);
+	n->len = l;
+	n->next = (*head);
+	(*head) = n;
+
+	return (*head);
 }
 
